@@ -70,7 +70,7 @@ var ctx = canvas.getContext("2d");
 
 function drow() {
     var lite
-    // ctx.fillStyle = ("00" +);
+    ctx.fillStyle = ("00" +);
     sdvbewrv5oj
     h63v57j3b
     35bj2i2u  46kb7i

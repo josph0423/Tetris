@@ -68,13 +68,10 @@ for (i = 0; i < 10; i++) {
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
+var light = { brightness: 80, "bright"};
 function drow() {
-    var lite
+
     ctx.fillStyle = ("00" +);
-    sdvbewrv5oj
-    h63v57j3b
-    35bj2i2u  46kb7i
-    u35buub
 
     ctx.fillRect(0, 0, width, height);
     for (i = 0; i < squares.length; i++) {

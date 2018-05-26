@@ -67,11 +67,24 @@ for (i = 0; i < 10; i++) {
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+var FPS = 60;
 
-var light = { brightness: 80, "bright"};
+var light = { brightness: 80, status: "Brighten" };　//"darken"
 function drow() {
-
-    ctx.fillStyle = ("00" +);
+    ctx.fillStyle = ("#00" + (Math.floor(light.brightness)).toString(16) + (Math.floor(light.brightness) + 30).toString(16));
+    if (light.status == "darken") {//一秒鐘變一次，變ＦＰＳ分之一次
+        if (light.brightness < 71) {
+            light.status = "Brighten";
+        } else {
+            light.brightness -= 7 / FPS;
+        }
+    } else {
+        if (light.brightness > 99) {
+            light.status = "darken";
+        } else {
+            light.brightness += 7 / FPS;
+        }
+    }
 
     ctx.fillRect(0, 0, width, height);
     for (i = 0; i < squares.length; i++) {
@@ -86,4 +99,4 @@ function drow() {
     }
 }
 
-setInterval(drow, 10);
+setInterval(drow, 100 / FPS);

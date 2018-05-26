@@ -1,0 +1,92 @@
+/*
+按照視窗高度調整寬高
+r(10*20+1*21)=height
+r=height/221
+width=height/221*111
+
+*/
+
+var height;
+var width;
+
+function squareProportion(xY) {
+    var squareProportion = [1, 11, 10, 20];
+    //現在221是"y"111是"x"
+    if (xY == "x") {
+        return ((squareProportion[0] * (squareProportion[2] + 1)) + (squareProportion[1] * squareProportion[2]));
+    } else if (xY == "y") {
+        return ((squareProportion[0] * (squareProportion[3] + 1)) + (squareProportion[1] * squareProportion[3]));
+    } else if (xY == "s1") {
+        return squareProportion[0];
+    } else if (xY == "s2") {
+        return squareProportion[1];
+    } else if (xY == "h/y") {
+        return $(window).height() / ((squareProportion[0] * (squareProportion[3] + 1)) + (squareProportion[1] * squareProportion[3]));
+    } else {
+        return 0;
+    }
+}
+// console.log(squareProportion("x"));
+// console.log(squareProportion("y"));
+// console.log(squareProportion("s1"));
+// console.log(squareProportion("s2"));
+// console.log(squareProportion("h/y"));
+// console.log(squareProportion("a"));
+
+
+$("document").ready(function () {
+    height = $(window).height();
+    width = (squareProportion("h/y") * squareProportion("x"));
+    $(window).resize(function () {
+        height = $(window).height();
+        width = (squareProportion("h/y") * squareProportion("x"));
+        $("canvas").attr("height", height);
+        $("canvas").attr("width", width);
+    });
+    $("canvas").attr("height", height);
+    $("canvas").attr("width", width);
+});
+
+let squares = [];
+
+for (i = 0; i < 10; i++) {
+    let square = []
+    for (l = 0; l < 20; l++) {
+        square.push({
+            color: "black",
+            setColor: function (color) {
+                this.color = color;
+            },
+            getColor: function () {
+                return this.color;
+            }
+        });
+    }
+    squares.push(square);
+}
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+function drow() {
+    var lite
+    // ctx.fillStyle = ("00" +);
+    sdvbewrv5oj
+    h63v57j3b
+    35bj2i2u  46kb7i
+    u35buub
+
+    ctx.fillRect(0, 0, width, height);
+    for (i = 0; i < squares.length; i++) {
+        for (l = 0; l < squares[i].length; l++) {
+            ctx.fillStyle = squares[i][l].getColor();
+            ctx.fillRect(
+                ((i + 1) * squareProportion("s1") * (squareProportion("h/y")) + i * squareProportion("s2") * (squareProportion("h/y"))),
+                ((l + 1) * squareProportion("s1") * (squareProportion("h/y")) + l * squareProportion("s2") * (squareProportion("h/y"))),
+                (squareProportion("s2") * (squareProportion("h/y"))),
+                (squareProportion("s2") * (squareProportion("h/y"))));
+        }
+    }
+}
+
+setInterval(drow, 10);

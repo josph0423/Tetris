@@ -75,21 +75,25 @@ function show() {
     var light = { brightness: 80, status: "Brighten" };　//"darken"
     function drow() {
         ctx.fillStyle = ("#00" + (Math.floor(light.brightness)).toString(16) + (Math.floor(light.brightness) + 30).toString(16));
+        var lightSpeed = 6.5;
         if (light.status == "darken") {//一秒鐘變一次，變ＦＰＳ分之一次
             if (light.brightness < 71) {
                 light.status = "Brighten";
+                light.brightness += lightSpeed / FPS;
             } else {
-                light.brightness -= 7 / FPS;
+                light.brightness -= lightSpeed / FPS;
             }
         } else {
             if (light.brightness > 99) {
                 light.status = "darken";
+                light.brightness -= lightSpeed / FPS;
             } else {
-                light.brightness += 7 / FPS;
+                light.brightness += lightSpeed / FPS;
             }
         }
-
+        // console.log(light.brightness);
         ctx.fillRect(0, 0, width, height);
+
         for (i = 0; i < squares.length; i++) {
             for (l = 0; l < squares[i].length; l++) {
                 ctx.fillStyle = squares[i][l].getColor();
@@ -102,7 +106,7 @@ function show() {
         }
     }
 
-    setInterval(drow, 100 / FPS);
+    setInterval(drow, 1000 / FPS);
 }
 
 function play() {

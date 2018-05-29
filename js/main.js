@@ -110,5 +110,7 @@ function show() {
 }
 
 function play() {
+    var tetrises = {
 
+    }
 }

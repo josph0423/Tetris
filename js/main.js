@@ -16,7 +16,7 @@ for (i = 0; i < 10; i++) {
     squares.push(square);
 }
 
-// show();
+show();
 
 function show() {
     /*

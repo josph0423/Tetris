@@ -111,10 +111,6 @@ function show() {
 
 function play() {
     var tetrises = {
-<<<<<<< HEAD
         aaaaaa
-=======
-
->>>>>>> gh-pages
     }
 }

@@ -69,8 +69,8 @@ function show() {
     });
 
     var canvas = document.getElementById("myCanvas");
-    var FPS = 60;
     var ctx = canvas.getContext("2d");
+    var FPS = 60;
 
     var light = { brightness: 80, status: "Brighten" };　//"darken"
     function drow() {
@@ -110,7 +110,4 @@ function show() {
 }
 
 function play() {
-    var tetrises = {
-
-    }
 }

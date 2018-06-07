@@ -17,6 +17,7 @@ for (i = 0; i < 10; i++) {
 }
 
 show();
+play();
 
 function show() {
     /*
@@ -162,4 +163,13 @@ function play() {
             }
         ]
     }
+    
+    function putOnTetris(){
+        for(var i = 0; i<; i++){
+            for 
+        }
+    }
+    
+    setInterval(putOnTetris, 1);
+}
 }
